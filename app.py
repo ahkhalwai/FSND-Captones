@@ -1,6 +1,6 @@
 import os
 from flask import Flask
-from models import setup_db
+from models import setup_db, Movies
 from flask_cors import CORS
 
 def create_app(test_config=None):
@@ -10,16 +10,13 @@ def create_app(test_config=None):
     CORS(app)
 
     @app.route('/')
-    def get_greeting():
-        excited = os.environ['EXCITED']
-        greeting = "Hello" 
-        if excited == 'true': 
-            greeting = greeting + "!!!!! You are doing great in this Udacity project."
-        return greeting
-
-    @app.route('/coolkids')
-    def be_cool():
-        return "Be cool, man, be coooool! You're almost a FSND grad!"
+    def get_movies():
+        #excited = os.environ['EXCITED']
+        movies = Movies.query.all()
+        result = "<h1>Upcoming Movies</h1>"
+        for movie in movies:
+            result += f"<p>Title: {movie.title}, Release Date: {movie.release_date}</p>"
+        return result
 
     return app
 
