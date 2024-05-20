@@ -1,6 +1,6 @@
 **Source Directory**
 
-/Users/musef/Udacity/FSND/projects/capstone/starter2
+/Users/musef/Udacity/FSND/render-deployment-example
 
 **Initialize and activate a virtualenv using:**
 ```
@@ -12,6 +12,8 @@ source env/bin/activate
 ```
 pip3.8 install -r requirements.txt
 ```
+pip3.8 freeze > requirements.txt
+
 **Run the development server:**
 ```
 export FLASK_APP=app.py;
