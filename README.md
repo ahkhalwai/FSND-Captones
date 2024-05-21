@@ -4,8 +4,8 @@
 
 **Initialize and activate a virtualenv using:**
 ```
-python3 -m virtualenv env
-(python3 -m venv env)
+python3.8 -m virtualenv env
+(python3.8 -m venv env)
 source env/bin/activate
 ```
 **Install the dependencies:**
@@ -13,6 +13,13 @@ source env/bin/activate
 pip3.8 install -r requirements.txt
 ```
 pip3.8 freeze > requirements.txt
+
+```
+chmod +x setup.sh
+source setup.sh
+echo $DATABASE_URL
+echo $EXCITED
+```
 
 **Run the development server:**
 ```
