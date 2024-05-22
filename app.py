@@ -1,15 +1,36 @@
 import os
-from flask import Flask,request,jsonify,abort
+from flask import (
+    Flask,
+    request,
+    abort,
+    render_template,
+    flash,
+    session,
+    redirect,
+    url_for,
+    jsonify
+)
 from models import setup_db, db_drop_and_create_all, Movies, Actors
 from flask_cors import CORS, cross_origin
 from auth import AuthError, requires_auth
+from authlib.integrations.flask_client import OAuth
+from urllib.parse import urlencode
+
+AUTH0_DOMAIN = os.getenv('AUTH0_DOMAIN')
+AUTH0_BASE_URL = os.getenv('AUTH0_BASE_URL')
+API_AUDIENCE = os.getenv('API_AUDIENCE')
+AUTH0_CALLBACK_URL = os.getenv('AUTH0_CALLBACK_URL')
+AUTH0_CLIENT_ID = os.getenv('AUTH0_CLIENT_ID')
+AUTH0_CLIENT_SECRET = os.getenv('AUTH0_CLIENT_SECRET')
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 def create_app(test_config=None):
 
     app = Flask(__name__)
+    app.secret_key = SECRET_KEY
+    app.config['SECRET_KEY'] = SECRET_KEY
     setup_db(app)
     CORS(app)
-    db_drop_and_create_all(app)
 
     @app.after_request
     def after_request(response):
@@ -299,6 +320,53 @@ def create_app(test_config=None):
     return app
 
 app = create_app()
+oauth = OAuth(app)
+
+auth0 = oauth.register(
+    'auth0',
+    client_id=AUTH0_CLIENT_ID,
+    client_secret=AUTH0_CLIENT_SECRET,
+    api_base_url=AUTH0_BASE_URL,
+    access_token_url='https://dev-aiehfurehuh6sbmf.us.auth0.com' +
+    '/oauth/token',
+    authorize_url='https://dev-aiehfurehuh6sbmf.us.auth0.com' +
+    '/authorize',
+    client_kwargs={
+        'scope': 'openid profile email'})
+
+
+@app.route('/login', methods=['GET'])
+@cross_origin()
+def login():
+    print('Audience: {}'.format(API_AUDIENCE))
+    return auth0.authorize_redirect(
+        redirect_uri='%s/post-login' % AUTH0_CALLBACK_URL,
+        audience=API_AUDIENCE
+    )
+
+
+@app.route('/post-login', methods=['GET'])
+@cross_origin()
+def post_login():
+    token = auth0.authorize_access_token()
+    session['token'] = token['access_token']
+    print(session['token'])
+    return render_template('pages/home.html'), 200
+
+
+@app.route('/logout')
+def log_out():
+    session.clear()
+    params = {
+        'returnTo': url_for(
+            'index',
+            _external=True),
+        'client_id': AUTH0_CLIENT_ID}
+    return redirect(
+        'https://dev-aiehfurehuh6sbmf.us.auth0.com' +
+        '/v2/logout?' +
+        urlencode(params))
+
 
 if __name__ == '__main__':
     app.run()
