@@ -5,3 +5,7 @@ export API_AUDIENCE = '127.0.0.1:5000'
 export DATABASE_URL="postgresql://postgres:8089@localhost:5432/ca"
 export EXCITED="true"
 echo "setup.sh script executed successfully!"
+echo $DATABASE_URL
+echo $EXCITED
+export FLASK_APP=app.py
+export FLASK_ENV=development
