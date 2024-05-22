@@ -1,6 +1,6 @@
 import os
 from flask import Flask,request,jsonify,abort
-from models import setup_db, Movies, Actors
+from models import setup_db, db_drop_and_create_all, Movies, Actors
 from flask_cors import CORS
 
 def create_app(test_config=None):
@@ -8,6 +8,7 @@ def create_app(test_config=None):
     app = Flask(__name__)
     setup_db(app)
     CORS(app)
+    #db_drop_and_create_all(app)
 
     @app.after_request
     def after_request(response):
