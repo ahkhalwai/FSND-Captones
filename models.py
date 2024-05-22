@@ -22,7 +22,7 @@ def setup_db(app, database_path=database_path):
     db.init_app(app)
 
 def db_drop_and_create_all(app):
-    db.drop_all()
+    #db.drop_all()
     db.create_all()
     movies = [
         Movies(title="The Gunman", release_date="1975-03-31"),
