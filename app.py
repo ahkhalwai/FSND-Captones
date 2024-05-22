@@ -1,7 +1,8 @@
 import os
 from flask import Flask,request,jsonify,abort
 from models import setup_db, db_drop_and_create_all, Movies, Actors
-from flask_cors import CORS
+from flask_cors import CORS, cross_origin
+from auth import AuthError, requires_auth
 
 def create_app(test_config=None):
 
@@ -17,6 +18,7 @@ def create_app(test_config=None):
         return response
 
     @app.route('/')
+    @cross_origin()
     def casting_team():
         movies = Movies.query.all()
         actors = Actors.query.all()
@@ -29,7 +31,9 @@ def create_app(test_config=None):
         return result 
 
     @app.route('/actors', methods=['GET'])
-    def get_actors():
+    @cross_origin()
+    @requires_auth('get:actors')
+    def get_actors(token):
         try:
             actor = Actors.query.all()
             result = []
@@ -55,7 +59,9 @@ def create_app(test_config=None):
             })
 
     @app.route('/actors', methods=['POST'])
-    def add_actor():
+    @cross_origin()
+    @requires_auth('post:actors')
+    def add_actor(token):
         try:
             data = request.json
             new_actor = Actors(
@@ -76,7 +82,9 @@ def create_app(test_config=None):
             })    
 
     @app.route('/actors/<int:id>', methods=['DELETE'])
-    def delete_actor(id):
+    @cross_origin()
+    @requires_auth('delete:actors')
+    def delete_actor(token,id):
         try:
             actor = Actors.query.get(id)
             if actor:
@@ -98,7 +106,9 @@ def create_app(test_config=None):
             }) 
 
     @app.route('/actors/<int:id>', methods=['PATCH'])
-    def update_actor(id):
+    @cross_origin()
+    @requires_auth('patch:actors')
+    def update_actor(token,id):
         try:
             actor = Actors.query.get(id)
             if actor is None:
@@ -130,7 +140,9 @@ def create_app(test_config=None):
             })             
 
     @app.route('/movies', methods=['GET'])
-    def get_movies():
+    @cross_origin()
+    @requires_auth('get:movies')
+    def get_movies(token):
         try:
             movie = Movies.query.all()
             result = []
@@ -154,7 +166,9 @@ def create_app(test_config=None):
             })
 
     @app.route('/movies', methods=['POST'])
-    def add_movies():
+    @cross_origin()
+    @requires_auth('post:movies')
+    def add_movies(token):
         try:
             data = request.json
             new_movie = Movies(
@@ -174,7 +188,9 @@ def create_app(test_config=None):
             })
 
     @app.route('/movies/<int:id>', methods=['DELETE'])
-    def delete_movies(id):
+    @cross_origin()
+    @requires_auth('delete:movies')
+    def delete_movies(token,id):
         try:
             movie = Movies.query.get(id)
             if movie:
@@ -196,7 +212,9 @@ def create_app(test_config=None):
             })
 
     @app.route('/movies/<int:id>', methods=['PATCH'])
-    def update_movies(id):
+    @cross_origin()
+    @requires_auth('patch:movies')
+    def update_movies(token,id):
         try:
             movie = Movies.query.get(id)
             if movie is None:
@@ -269,13 +287,13 @@ def create_app(test_config=None):
             "message": "Internal Server Error"
         }), 500
 
-    # @app.errorhandler(AuthError)
-    # def auth_error(error):
-    #     return jsonify({
-    #         "success": False,
-    #         "error": error.status_code,
-    #         "message": error.error
-    #     }), error.status_code
+    @app.errorhandler(AuthError)
+    def auth_error(error):
+        return jsonify({
+            "success": False,
+            "error": error.status_code,
+            "message": error.error
+        }), error.status_code
     
 
     return app
