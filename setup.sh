@@ -1,14 +1,15 @@
 #!/bin/bash
-export AUTH0_DOMAIN = 'dev-aiehfurehuh6sbmf.us.auth0.com'
-export ALGORITHMS = ['RS256']
-export API_AUDIENCE = '127.0.0.1:5000'
+export AUTH0_DOMAIN='dev-aiehfurehuh6sbmf.us.auth0.com'
+export ALGORITHMS='["RS256"]'
+export API_AUDIENCE='127.0.0.1:5000'
 export DATABASE_URL="postgresql://postgres:8089@localhost:5432/fsnd"
-export TEST_DATABASE_URL="postgresql://postgres@localhost:5432/fsndtest"
-export TEST_TOKEN="Bearer "
+export TEST_DATABASE_URL="postgresql://postgres:8089@localhost:5432/fsndtest"
+export TEST_TOKEN="Bearer HRwczovL2Rldi0ycnBoeGhxa3Zmc2djZ2xlLnVzLmF1dGgwLmNvbS8iLCJzdWIiOiJnb29nbGUtb2F1dGgyfDEwNTUxNTg5OTYzOTQwMzE5MzI0MSIsImF1ZCI6ImNhcHN0b25lIiwiaWF0IjoxNzEzNjc3MDY0LCJleHAiOjE3MTM2ODQyNjQsInNjb3BlIjoiIiwiYXpwIjoicDdrcU1LZHBVUkJoUUhVWVF5R0RodFVmYzJaOVE0SnoiLCJwZXJtaXNzaW9ucyI6WyJkZWxldGU6YWN0b3JzIiwiZGVsZXRlOm1vdmllcyIsImdldDphY3RvcmZvcm0iLCJnZXQ6YWN0b3JzIiwiZ2V0Om1vdmllZm9ybSIsImdldDptb3ZpZXMiLCJwYXRjaDphY3RvcnMiLCJwYXRjaDptb3ZpZXMiLCJwb3N0OmFjdG9ycyIsInBvc3Q6bW92aWVzIl19.fqqE7nCqMGh_AiOmmy3pFOgGKlKCRj9Vj4WEbu7--tgF3Fhdm6itYO1hqUpEFRU6FXj_yv5z_HBGplozTkou4caB0J4msqjzJU0q7l0B5Njg7NOQhTXIaajry89nmoYepOpWHwZL0gJNGbaDk635l9eSqeK9V9skaxIvswVzFqGso_stDg7eh-TZyRVIUjDCa2KxiGJFgkvFlSP09NFIAQtXq-ytKFvUUizoHpmLuUJfm6FXmYDc2tnLxI7Y70WfTVvgjAjLSpOURH9VlDfHZvxus_qqw9s1A-klG2JRBsObD5UmxwgmnNZTypN8WidywozQJI2kKWLdOfTVQ3W7EQ"
 export EXCITED="true"
+export FLASK_APP=test_app.py
+export FLASK_ENV=development
+
 echo "setup.sh script executed successfully!"
 echo $DATABASE_URL
 echo $TEST_DATABASE_URL
 echo $EXCITED
-export FLASK_APP=test_app.py
-export FLASK_ENV=development
