@@ -11,7 +11,7 @@ export TEST_TOKEN="Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Im53eGtHUj
 export EXCITED="true"
 export FLASK_APP=app.py
 export FLASK_ENV=development
-export SECRET_KEY="2cf18fde0e2f10f68152ac686c962e32"
+export SECRET_KEY="94859670d920a8b4d5fdb0a389bd5283"
 
 echo "setup.sh script executed successfully!"
 echo $DATABASE_URL
