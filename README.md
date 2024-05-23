@@ -3,23 +3,23 @@
 It's a Full stack ND project by Udacity. project is based on casting agency which allow user to CREATE, UPDATE, READ, DELETE of Actors and Movies. [here](https://fsnd-captones.onrender.com)
 
 
-**Environment Setup**
+## Environment Setup
 
-**Local**
+### Local
 
 ```
 # Change to project folder
 cd Path user/udacity/project etc
 ```
 
-**Initialize and activate a virtualenv using:**
+#### Initialize and activate a virtualenv using:
 ```
 # Mac Users
 
 python3.8 -m venv env
 source env/bin/activate
 ```
-**Install the dependencies:**
+#### Install the dependencies:**
 ```
 # run all required dependencies
 
@@ -38,7 +38,7 @@ echo $TEST_DATABASE_URL
 echo $EXCITED
 ```
 
-**Run the development server:**
+## Run the development server:
 
 ### Local
 
@@ -59,7 +59,7 @@ python3.8 test_app.py
 ### Render(Cloud)
 
 
-**Setup Roles on Auth0:**
+#### Setup Roles on Auth0:
 
 - Casting Assistant
 
@@ -76,7 +76,7 @@ python3.8 test_app.py
 	- All permissions a Casting Director has and…
 	- Add or delete a movie from the database
 
-**Set Permissions:**
+#### Set Permissions:
 
     - `delete:actors`
     - `delete:movies`
@@ -87,18 +87,18 @@ python3.8 test_app.py
     - `post:actors`
     - `post:movies`
 
-**Set up Render PostgreSQL**
+#### Set up Render PostgreSQL
 
 - Create New PostgreSQL
 - Once created copy `Internal database URL`
 
-**Set up Render Web Service**
+#### Set up Render Web Service
 
 - Connect with Github project repo.
 - Set up Environment like python version 3.8.12, excited true and database URL - paste the internal database url
 - hit create button
 
-**Set up token from auth0**
+#### Set up token from auth0
 
 - once the render is live then only you can get token, now render is live so we go for token. 
 - Update the callback url,logout url,web orgin, allowed orgins cors on application which we can copy from render web service url link and hit save button
@@ -111,13 +111,13 @@ https://dev-aiehfurehuh6sbmf.us.auth0.com/authorize?audience=127.0.0.1:5000&resp
 &redirect_uri=https://render-deployment-examplesad.onrender.com
 ```
 
-**Set up render Environment and setup.sh final step for deployment**
+#### Set up render Environment and setup.sh final step for deployment
 
 ![Setup.sh](images/1.png)
 
 ![Render Environment](images/2.png)
 
-# API Reference
+## API Reference
 
 ### Error Handling
 Errors are returned as JSON objects in the following format:
