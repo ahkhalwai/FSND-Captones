@@ -114,5 +114,34 @@ https://dev-aiehfurehuh6sbmf.us.auth0.com/authorize?audience=127.0.0.1:5000&resp
 **Set up render Environment and setup.sh final step for deployment**
 
 ![Setup.sh](images/1.png)
+
 ![Render Environment](images/2.png)
 
+# API Reference
+
+### Error Handling
+Errors are returned as JSON objects in the following format:
+```
+{
+    "success": False, 
+    "error": 400,
+    "message": "bad request"
+}
+```
+The API will return the following error types when requests fail:
+- 400: Bad Request
+- 401: Unauthorized
+- 404: Resource Not Found
+- 422: Not Processable 
+- 500: Internal Server Error
+
+### Endpoints 
+
+#### GET /actors
+
+- get the actors.
+- Returns: An object with a single key, `actors`, that contains a list of actors their name, age and gender.
+- Sample: `curl -X GET -H "Content-Type: application/json" https://render-deployment-examplesad.onrender.com/actors -H "Authorization: $TEST_TOKEN"               `
+```
+
+```
