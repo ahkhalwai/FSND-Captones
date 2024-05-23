@@ -1,4 +1,4 @@
-FSND Captone Project
+# FSND Captone Project
 
 It's a Full stack ND project by Udacity. project is based on casting agency which allow user to CREATE, UPDATE, READ, DELETE of Actors and Movies.
 
@@ -56,21 +56,32 @@ python3.8 test_app.py
 
 **API Reference**
 
-**Roles:**
+### Roles:
 
-```
-Casting Assistant
+- Casting Assistant
 
-- Can view actors and movies
+	- Can view actors and movies
 
-Casting Director
+- Casting Director
 
-- All permissions a Casting Assistant has and…
-- Add or delete an actor from the database
-- Modify actors or movies
+	- All permissions a Casting Assistant has and…
+	- Add or delete an actor from the database
+	- Modify actors or movies
 
-Executive Producer
+- Executive Producer
 
-- All permissions a Casting Director has and…
-- Add or delete a movie from the database
-```
+	- All permissions a Casting Director has and…
+	- Add or delete a movie from the database
+
+### Set Permissions:
+
+    - `delete:actors`
+    - `delete:movies`
+    - `get:actors`
+    - `get:movies`
+    - `patch:actors`
+    - `patch:movies`
+    - `post:actors`
+    - `post:movies`
+
+### Set JWT Tokens
