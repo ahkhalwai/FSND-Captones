@@ -1,43 +1,71 @@
-**Source Directory**
+FSND Captone Project
 
-/Users/musef/Udacity/FSND/render-deployment-example
+It's a Full stack ND project by Udacity. project is based on casting agency which allow user to CREATE, UPDATE, READ, DELETE of Actors and Movies.
+
+
+**Environment Setup**
+
+**Local**
+
+```
+# Change to project folder
+cd Path user/udacity/project etc
+```
 
 **Initialize and activate a virtualenv using:**
 ```
-python3.8 -m virtualenv env
-(python3.8 -m venv env)
+# Mac Users
+
+python3.8 -m venv env
 source env/bin/activate
 ```
 **Install the dependencies:**
 ```
+# run all required dependencies
+
 pip3.8 install -r requirements.txt
-```
+
+# if any updates or install new dependencies so use this command to for updates the requirements.txt file.  
+
 pip3.8 freeze > requirements.txt
+```
 
 ```
 chmod +x setup.sh
 source setup.sh
 echo $DATABASE_URL
+echo $TEST_DATABASE_URL
 echo $EXCITED
 ```
 
 **Run the development server:**
+
+Main Project
+
 ```
 export FLASK_APP=app.py;
 export FLASK_ENV=development # enables debug mode
 flask run --reload
 ```
 
-token local
+Test Project
 
 ```
-eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Im53eGtHUjc0Y3Zsc2FUTFNnc2c5NCJ9.eyJpc3MiOiJodHRwczovL2Rldi1haWVoZnVyZWh1aDZzYm1mLnVzLmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw2NjJlMDAzMTY3OTk2ODUyMWRhOWMzNGQiLCJhdWQiOiIxMjcuMC4wLjE6NTAwMCIsImlhdCI6MTcxNjM3NDY5MSwiZXhwIjoxNzE2MzgxODkxLCJzY29wZSI6IiIsImF6cCI6ImZieWNkWVFvN0xpNjlhRHlxN3p5QXN6bEF3cDVITEZuIiwicGVybWlzc2lvbnMiOlsiZGVsZXRlOmFjdG9ycyIsImRlbGV0ZTptb3ZpZXMiLCJnZXQ6YWN0b3JzIiwiZ2V0Om1vdmllcyIsInBhdGNoOmFjdG9ycyIsInBhdGNoOm1vdmllcyIsInBvc3Q6YWN0b3JzIiwicG9zdDptb3ZpZXMiXX0.UzyYzvEQr7OV2sIEWjBIwN6KlUfwFbz0g9T9MncSQySoqTil7oCtyWUC3c-J4gTotPGPRqcqmwqiYPWF8zOG4JPYVUifn4kAaYofAg1W_z9E5OKTff8MhuxIoWS6_GSZOMan1uUVrK2OqJOG1VLXXU5YB6reOEBhrWly1aTxS4eDYESJyCGBCKISRs2EVM41_9fDYeng65wqh_hOn5uj9bgEVP90wDYL-b-50o0FJy25s_ARb76FkLA8Wd7j1MRDpHke4nMxW3MZ8qoLpqEtLIbBHs_bUjrE_y7jgqw0-v4C4L_7Xt_taITw6GhqIpwg9zMXlMx2cLrQMPMycpB1FQ
+python3.8 test_app.py
 ```
 
-render
+**API Reference**
 
-```
-eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Im53eGtHUjc0Y3Zsc2FUTFNnc2c5NCJ9.eyJpc3MiOiJodHRwczovL2Rldi1haWVoZnVyZWh1aDZzYm1mLnVzLmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw2NjJlMDAzMTY3OTk2ODUyMWRhOWMzNGQiLCJhdWQiOiIxMjcuMC4wLjE6NTAwMCIsImlhdCI6MTcxNjM4OTE2OCwiZXhwIjoxNzE2Mzk2MzY4LCJzY29wZSI6IiIsImF6cCI6ImZieWNkWVFvN0xpNjlhRHlxN3p5QXN6bEF3cDVITEZuIiwicGVybWlzc2lvbnMiOlsiZGVsZXRlOmFjdG9ycyIsImRlbGV0ZTptb3ZpZXMiLCJnZXQ6YWN0b3JzIiwiZ2V0Om1vdmllcyIsInBhdGNoOmFjdG9ycyIsInBhdGNoOm1vdmllcyIsInBvc3Q6YWN0b3JzIiwicG9zdDptb3ZpZXMiXX0.YOUS_PKlzVXzJEQWHmAp3rfAuvXXbAXQV5bZY0OacAOdFlxlBvS9tkikWKmj4huKc0w-SoiWcSIOs5ZBrB_12PPSluVKhwjnKyg8T94AVZfTqJSlz1PIOMIh3rVSsSrJfZSQvdnyX7JOb2L437mY1qveHYguCLxLoNbIQwu4CjzIgC66385DEUZS2tsm7mWB0fpLDZyS3ibDDTBxo9lfZVAWZiANLWKw70SOkVupWGCUYQ6H7sckiF7JQ5mQrP5wUEuYOKj9ZR63L9u92LsldqKJMXbYPxT-X8GRcm2zGycnqNX9-4Uoib4o_qsdNIHR6U5w5CxnFmrWDqJ-HW-QoA
-```
+**Roles:**
 
-eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Im53eGtHUjc0Y3Zsc2FUTFNnc2c5NCJ9.eyJpc3MiOiJodHRwczovL2Rldi1haWVoZnVyZWh1aDZzYm1mLnVzLmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw2NjJlMDAzMTY3OTk2ODUyMWRhOWMzNGQiLCJhdWQiOiIxMjcuMC4wLjE6NTAwMCIsImlhdCI6MTcxNjQ1NDA4NSwiZXhwIjoxNzE2NDYxMjg1LCJzY29wZSI6IiIsImF6cCI6ImZieWNkWVFvN0xpNjlhRHlxN3p5QXN6bEF3cDVITEZuIiwicGVybWlzc2lvbnMiOlsiZGVsZXRlOmFjdG9ycyIsImRlbGV0ZTptb3ZpZXMiLCJnZXQ6YWN0b3JzIiwiZ2V0Om1vdmllcyIsInBhdGNoOmFjdG9ycyIsInBhdGNoOm1vdmllcyIsInBvc3Q6YWN0b3JzIiwicG9zdDptb3ZpZXMiXX0.PgeRAc1ukpwIx2Qd65N3Onj_yxrfRVwsUGtsG2cTsAjmwYAmuHQrTcc8M7wpgyDA1pkBYgliUinTXdr7Zl0YpFPpKNYvwQ_-GWsJo4PoKoG0ThQLu9fujCklaO_6HFVYBbJPieWn7X57c3vK9jSq8Rq4oda28XGMbrv9beuBUCrt-wA1wDxc-qv27978UfDNsYm-y6oKeZjQR-9lGuRo4VBRU-h87VKaF3v0OWRUIbijuN9OhxgY8RU0sdfCH8H0fA8rUvDfzAWOVUvRuUjM6xo1psfL3GxoVeDYR392LK8bjW_6AzeuPz5E0k-osylSREwdg4olhgPe3-Pcyj2viA
+Casting Assistant
+-Can view actors and movies
+
+Casting Director
+-All permissions a Casting Assistant has and…
+-Add or delete an actor from the database
+-Modify actors or movies
+
+Executive Producer
+-All permissions a Casting Director has and…
+-Add or delete a movie from the database
