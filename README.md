@@ -40,6 +40,8 @@ echo $EXCITED
 
 **Run the development server:**
 
+### Local
+
 Main Project
 
 ```
@@ -54,9 +56,10 @@ Test Project
 python3.8 test_app.py
 ```
 
-**API Reference**
+### Render(Cloud)
 
-### Roles:
+
+**Setup Roles on Auth0:**
 
 - Casting Assistant
 
@@ -73,7 +76,7 @@ python3.8 test_app.py
 	- All permissions a Casting Director has and…
 	- Add or delete a movie from the database
 
-### Set Permissions:
+**Set Permissions:**
 
     - `delete:actors`
     - `delete:movies`
@@ -84,4 +87,32 @@ python3.8 test_app.py
     - `post:actors`
     - `post:movies`
 
-### Set JWT Tokens
+**Set up Render PostgreSQL**
+
+- Create New PostgreSQL
+- Once created copy `Internal database URL`
+
+**Set up Render Web Service**
+
+- Connect with Github project repo.
+- Set up Environment like python version 3.8.12, excited true and database URL - paste the internal database url
+- hit create button
+
+**Set up token from auth0**
+
+- once the render is live then only you can get token, now render is live so we go for token. 
+- Update the callback url,logout url,web orgin, allowed orgins cors on application which we can copy from render web service url link and hit save button
+
+```
+https://{{YOUR_DOMAIN}}/authorize?audience={{API_IDENTIFIER}}&response_type=token&client_id={{YOUR_CLIENT_ID}}&redirect_uri={{YOUR_CALLBACK_URI}}
+
+Example:
+https://dev-aiehfurehuh6sbmf.us.auth0.com/authorize?audience=127.0.0.1:5000&response_type=token&client_id=fbycdYQo7Li69aDyq7zyAszlAwp5HLFn
+&redirect_uri=https://render-deployment-examplesad.onrender.com
+```
+
+**Set up render Environment and setup.sh final step for deployment**
+
+image1
+image2
+
