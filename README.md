@@ -141,9 +141,9 @@ The API will return the following error types when requests fail:
 
 - get the actors.
 - Returns: An object with a single key, `actors`, that contains a list of actors their name, age and gender.
-- Sample: `curl -X GET -H "Content-Type: application/json" https://render-deployment-examplesad.onrender.com/actors -H "Authorization: $TEST_TOKEN"`
+- Sample: `curl -X GET -H "Content-Type: application/json" https://fsnd-captones.onrender.com/actors -H "Authorization: $TEST_TOKEN"`
 ```
-
+{"actors":[{"age":39,"gender":"Female","id":1,"name":"Scarlett Johansson"},{"age":40,"gender":"Male","id":2,"name":"Chris Hemsworth"},{"age":48,"gender":"Male","id":3,"name":"Leonardo DiCaprio"},{"age":59,"gender":"Male","id":4,"name":"Keanu Reeves"}],"success":true,"total_actors":4}
 ```
 
 #### POST /actors
