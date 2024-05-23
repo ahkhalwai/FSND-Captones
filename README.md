@@ -113,6 +113,6 @@ https://dev-aiehfurehuh6sbmf.us.auth0.com/authorize?audience=127.0.0.1:5000&resp
 
 **Set up render Environment and setup.sh final step for deployment**
 
-image1
-image2
+![Setup.sh](images/1.png)
+![Render Environment](images/2.png)
 
