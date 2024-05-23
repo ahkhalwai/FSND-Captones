@@ -13,7 +13,7 @@ export FLASK_APP=app.py
 export FLASK_ENV=development
 export SECRET_KEY="94859670d920a8b4d5fdb0a389bd5283"
 
-echo "setup.sh script executed successfully!"
+echo "setup.sh scripts executed successfully!"
 echo $DATABASE_URL
 echo $TEST_DATABASE_URL
 echo $TEST_TOKEN
