@@ -23,27 +23,9 @@ def setup_db(app, database_path=database_path):
     db.create_all()
 
 def db_drop_and_create_all(app):
-    #db.drop_all()
+    db.drop_all()
     db.create_all()
-    movies = [
-        Movies(title="The Gunman", release_date="1975-03-31"),
-        Movies(title="Inception", release_date="2010-07-16"),
-        Movies(title="The Matrix", release_date="1999-03-31"),
-        Movies(title="The Dark Knight", release_date="2008-07-18")
-    ]
-    
-    for movie in movies:
-        movie.insert()
-    
-    actors = [
-        Actors(name="Scarlett Johansson", age=39, gender="Female"),
-        Actors(name="Chris Hemsworth", age=40, gender="Male"),
-        Actors(name="Leonardo DiCaprio", age=48, gender="Male"),
-        Actors(name="Keanu Reeves", age=59, gender="Male")
-    ]
 
-    for actor in actors:
-        actor.insert()
 '''
 Movies
 Have title and release year
