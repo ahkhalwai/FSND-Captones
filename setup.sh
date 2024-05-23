@@ -16,4 +16,5 @@ export SECRET_KEY="2cf18fde0e2f10f68152ac686c962e32"
 echo "setup.sh script executed successfully!"
 echo $DATABASE_URL
 echo $TEST_DATABASE_URL
+echo $TEST_TOKEN
 echo $EXCITED
