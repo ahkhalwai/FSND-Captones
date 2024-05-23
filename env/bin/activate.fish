@@ -29,7 +29,7 @@ end
 # unset irrelevant variables
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV "/Users/musef/Udacity/FSND/render-deployment-example/env"
+set -gx VIRTUAL_ENV "/Users/musef/Udacity/FSND/FSND-Captones/env"
 
 set -gx _OLD_VIRTUAL_PATH $PATH
 set -gx PATH "$VIRTUAL_ENV/bin" $PATH
