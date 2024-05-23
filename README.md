@@ -58,14 +58,19 @@ python3.8 test_app.py
 
 **Roles:**
 
+```
 Casting Assistant
--Can view actors and movies
+
+- Can view actors and movies
 
 Casting Director
--All permissions a Casting Assistant has and…
--Add or delete an actor from the database
--Modify actors or movies
+
+- All permissions a Casting Assistant has and…
+- Add or delete an actor from the database
+- Modify actors or movies
 
 Executive Producer
--All permissions a Casting Director has and…
--Add or delete a movie from the database
+
+- All permissions a Casting Director has and…
+- Add or delete a movie from the database
+```
