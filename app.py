@@ -60,6 +60,7 @@ def create_app(test_config=None):
     @requires_auth('get:actors')
     def get_actors(token):
         try:
+            logging.debug("Fetching actors from the database")
             actor = Actors.query.all()
             result = []
             for actors in actor:
@@ -78,6 +79,7 @@ def create_app(test_config=None):
             }), 200  
         
         except Exception as e:
+            app.logger.error('Error fetching actors: %s', str(e))
             return jsonify({
                 'success': False,
                 'error': str(e)
