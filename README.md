@@ -141,7 +141,66 @@ The API will return the following error types when requests fail:
 
 - get the actors.
 - Returns: An object with a single key, `actors`, that contains a list of actors their name, age and gender.
-- Sample: `curl -X GET -H "Content-Type: application/json" https://render-deployment-examplesad.onrender.com/actors -H "Authorization: $TEST_TOKEN"               `
+- Sample: `curl -X GET -H "Content-Type: application/json" https://render-deployment-examplesad.onrender.com/actors -H "Authorization: $TEST_TOKEN"`
+```
+
+```
+
+#### POST /actors
+
+- General:
+    - Creates a new actor. 
+- Sample: `curl -X POST -H "Content-Type: application/json" https://render-deployment-examplesad.onrender.com/actors/ -H "Authorization: $TEST_TOKEN" --data-raw '{"name": "Salman Khan", "age": "45", "gender": "Male"}'`
+```
+
+```
+
+#### DELETE /actors/id
+- General:
+    - Deletes the actor of the given ID if it exists.
+- Sample: `curl -X DELETE -H "Content-Type: application/json" https://render-deployment-examplesad.onrender.com/actors/2 -H "Authorization: $TEST_TOKEN"`
+```
+
+```
+
+#### PATCH /actors/id
+- General:
+    - Updates the actor of the given ID if it exists.
+- Sample: `curl -X PATCH https://render-deployment-examplesad.onrender.com/actors/3 -H "Authorization: $TEST_TOKEN" --data-raw '{"name": "Vishy Anand"}'`
+```
+
+```
+
+#### GET /movies
+
+- get the movies.
+- Returns: An object with a single key, `movies`, that contains a list of actors their name, age and gender.
+- Sample: `curl -X GET -H "Content-Type: application/json" https://render-deployment-examplesad.onrender.com/movies -H "Authorization: $TEST_TOKEN"`
+```
+
+```
+
+#### POST /movies
+
+- General:
+    - Creates a new movies. 
+- Sample: `curl -X POST -H "Content-Type: application/json" https://render-deployment-examplesad.onrender.com/movies/ -H "Authorization: $TEST_TOKEN" --data-raw '{ "title": "Avengers", "release_date": "2017-04-17"}'`
+```
+
+```
+
+#### DELETE /movies/id
+- General:
+    - Deletes the movies of the given ID if it exists.
+- Sample: `curl -X DELETE -H "Content-Type: application/json" https://render-deployment-examplesad.onrender.com/movies/1 -H "Authorization: $TEST_TOKEN"`
+```
+
+```
+
+#### PATCH /movies/id
+- General:
+    - Updates the movies of the given ID if it exists.
+- Sample: `curl -X PATCH https://render-deployment-examplesad.onrender.com/movies/3 -H "Authorization: $TEST_TOKEN" --data-raw '{"title": "Anaconda"}'`
 ```
 
 ```
