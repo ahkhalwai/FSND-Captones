@@ -15,8 +15,6 @@ from flask_cors import CORS, cross_origin
 from auth import AuthError, requires_auth
 from authlib.integrations.flask_client import OAuth
 from urllib.parse import urlencode
-import logging
-logging.basicConfig(level=logging.DEBUG)
 
 AUTH0_DOMAIN = os.getenv('AUTH0_DOMAIN')
 AUTH0_BASE_URL = os.getenv('AUTH0_BASE_URL')
@@ -60,7 +58,6 @@ def create_app(test_config=None):
     @requires_auth('get:actors')
     def get_actors(token):
         try:
-            logging.debug("Fetching actors from the database")
             actor = Actors.query.all()
             result = []
             for actors in actor:
@@ -79,7 +76,6 @@ def create_app(test_config=None):
             }), 200  
         
         except Exception as e:
-            app.logger.error('Error fetching actors: %s', str(e))
             return jsonify({
                 'success': False,
                 'error': str(e)
@@ -308,7 +304,6 @@ def create_app(test_config=None):
     
     @app.errorhandler(500)
     def serverError(error):
-        app.logger.error('Server Error: %s', (error))
         return jsonify({
             "success": False,
             "error": 500,
