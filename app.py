@@ -15,6 +15,8 @@ from flask_cors import CORS, cross_origin
 from auth import AuthError, requires_auth
 from authlib.integrations.flask_client import OAuth
 from urllib.parse import urlencode
+import logging
+logging.basicConfig(level=logging.DEBUG)
 
 AUTH0_DOMAIN = os.getenv('AUTH0_DOMAIN')
 AUTH0_BASE_URL = os.getenv('AUTH0_BASE_URL')
@@ -35,6 +37,7 @@ def create_app(test_config=None):
 
     @app.after_request
     def after_request(response):
+        response.headers.add('Access-Control-Allow-Origin', '*')
         response.headers.add('Access-Control-Allow-Headers', 'Content-Type, Authorization')
         response.headers.add('Access-Control-Allow-Headers', 'GET, POST, PATCH, DELETE, OPTIONS')
         return response
@@ -303,6 +306,7 @@ def create_app(test_config=None):
     
     @app.errorhandler(500)
     def serverError(error):
+        app.logger.error('Server Error: %s', (error))
         return jsonify({
             "success": False,
             "error": 500,
